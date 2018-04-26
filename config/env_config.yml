@@ -1,0 +1,14 @@
+---
+QA:
+  url: https://tlc-stage.herokuapp.com/
+  user: cGVyZnRlc3QxMTEx
+#  password: UGFzc3dvcmQjMQ
+  password: UGFzc3dvcmQjMg
+# DEV:
+#   url: https://tlc-stage.herokuapp.com/
+#   user: cGVyZnRlc3QxMTEx
+#   password: UGFzc3dvcmQjMQ
+# PROD:
+#   url: https://tlc-stage.herokuapp.com/
+#   user: cGVyZnRlc3QxMTEx
+#   password: UGFzc3dvcmQjMQ

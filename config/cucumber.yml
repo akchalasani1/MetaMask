@@ -1,0 +1,4 @@
+default: --profile html_report
+html_report: --format html --out ./results/result.html
+json_report: --format json --out ./results/result.json
+pretty: --format pretty
