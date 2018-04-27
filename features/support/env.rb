@@ -14,6 +14,7 @@ caps = Selenium::WebDriver::Remote::Capabilities.chrome({'chromeOptions' => {'ex
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome, :desired_capabilities => caps)
 end
+
 Capybara.default_driver = :chrome
 
 Capybara::Screenshot.register_driver(:chrome) do |driver, path|
@@ -21,7 +22,8 @@ Capybara::Screenshot.register_driver(:chrome) do |driver, path|
 end
 
 #Capybara::Screenshot.webkit_options = { width: 320, height: 420 }
-Capybara::Screenshot.prune_strategy = :keep_last_run        # OR { keep: 20 }
+#  using :keep_last_run is deleting result.html
+ Capybara::Screenshot.prune_strategy = { keep: 1}       # OR :keep_last_run
 
 # Driver config
 Capybara.default_max_wait_time = 60
@@ -42,7 +44,7 @@ end
 #include Capybara::DSL
 config = YAML.load_file('./config/env_config.yml')
 $test_env = ENV['env']
-#
+
 begin
 #  $test_env ||= 'QA'
 #  env = $test_env.to_s

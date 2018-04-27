@@ -2,40 +2,40 @@
 
 source "https://rubygems.org"
 
-ruby '2.4.2'
+ruby '2.5.1'
 
-  group(:test) do
+group(:test) do
   # ruby make
-  gem 'rake','~>11.3'
+  gem 'rake','~>12.3.0'
 
   # bdd and test framework
-  gem 'cucumber','~>2.4'
-  gem 'rspec','~>3.5'
+  gem 'cucumber','~>2.99.0'
+  gem 'rspec','~>3.7.0'
 
   # underlying browser driver
   gem 'selenium-webdriver','~>2.53.4'
 
   # testing dsl and other features over the webdriver
-  gem 'capybara','~>2.10'
+  gem 'capybara','~>2.18.0'
 
   # screenshots
-  gem 'capybara-screenshot','~>1.0'
+  gem 'capybara-screenshot','~>1.0.19'
 
   # headless testing -- requires phantomjs
-  gem 'poltergeist','~>1.11'
+  gem 'poltergeist','~>1.17.0'
 
   # guard utility
-  gem 'guard','~>2.14'
-  gem 'guard-rake','~>1.0'   # allows running rake in Guardfile
+  gem 'guard','~>2.14.2'
+  gem 'guard-rake','~>1.0.0'   # allows running rake in Guardfile
 
   # logger
-  gem 'log4r','~>1.0'
+  gem 'log4r','~>1.1.10'
 
   # excel parser
-  gem 'roo', '~> 2.5', '>= 2.5.1'
+  gem 'roo', '~> 2.7.1'
 
   #  page object model pattern
-  gem 'site_prism', '~> 2.9'
+  gem 'site_prism', '~> 2.12'
 
 
 end

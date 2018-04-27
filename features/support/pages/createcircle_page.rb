@@ -31,10 +31,13 @@ class CreatecirclePage < BasePage
      element   :crct_crcl,                   :xpath, "//button[text() = 'CREATE CIRCLE']"
      element   :crcl_crtd,                   :xpath, "//div[text()='Your circle was created']"
      element   :btn_grid,                    :xpath, "//div[@class='sandwich-expando']"
-     element  :lnk_lg_out,                   :xpath, "//li[text()='Log Out']"
+     element   :lnk_lg_out,                  :xpath, "//li[text()='Log Out']"
      # elements because it is a list
      elements  :btn_acpt,                    :xpath, "//button[text()='ACCEPT']"
      elements  :btn_dply,                    :xpath, "//button[text()='DEPLOY']"
+
+     #element  :btn_arrow_up,                 :xpath, "%Q{(//img[contains(@src, '/img/arrow-up.svg')]) [1]}"
+     #element  :btn_arrow_up,                 :xpath, "//img[contains(@src, '/img/arrow-up.svg')]"
 
      element  :btn_lnch_metamsk,             :xpath, "//button[text()='Yes, launch MetaMask to deploy circle']"
      element  :btn_sbt,                      :xpath, "//input[@class ='confirm btn-green']"
@@ -117,13 +120,17 @@ class CreatecirclePage < BasePage
        end
 
         def accept_all_circles
+
+            sleep 3
+            #self.btn_arrow_up.click
             sleep 3
           btn_acpt.each do |accpt|
-            puts "I AM IN"
+
             sleep 3
-            puts "title_crcl: #{title_crcl.b}"
-            puts "$crcl_name: #{$crcl_name}"
+             puts "title_crcl: #{title_crcl.text}"
+            # puts "$crcl_name: #{$crcl_name}"
             if title_crcl.text == $crcl_name
+              puts "I AM IN"
               puts "title_crcl: #{title_crcl.text}"
               puts "$crcl_name: #{$crcl_name}"
               accpt.click

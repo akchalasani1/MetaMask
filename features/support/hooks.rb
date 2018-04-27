@@ -10,9 +10,9 @@ After do |scenario|
    encoded_img = page.driver.browser.screenshot_as(:base64)
    embed("data:image/png;base64,#{encoded_img}",'image/png')
  end
-  @app.logout
+  @app.logout # if removed extra window is opening.
   page.driver.quit
-  FileUtils.rm_rf Dir.glob("#{$download_folder}/**/*")
+  #FileUtils.rm_rf Dir.glob("#{$download_folder}/**/*")
   ILogger.info("Ending scenario #{scenario.name}")
 end
 
@@ -22,7 +22,7 @@ Before do |scenario|
   ILogger.info("Beginning scenario #{scenario.name}")
   browser = Capybara.current_session.driver.browser
   browser.manage.delete_all_cookies
-#  browser.manage.window.maximize
+  # browser.manage.window.maximize
   @app = App.new
 end
 
