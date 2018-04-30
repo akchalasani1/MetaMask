@@ -14,13 +14,13 @@ class CreatecirclePage < BasePage
      element   :cntribton_freq_mntly,        :xpath, "//label[text()= 'Monthly']"
 
      element   :crncy_dropdown,              :xpath, "//div[contains(@class, 'currencyContainer')]"
-     # elements because it is a list
+  # elements because it is clickable on multiple same name items.
      elements  :crncy_type_select,           :xpath, "//div[contains(@class, 'dropdownList')]//span"
      element   :enter_amount,                :xpath, "//input[@type = 'number']"
      element   :btn_next,                    :xpath, "//button[text() = 'Next']"
 
      element   :add_ptcpnt,                  :xpath, "//div[text() = '+ Add Participant']"
-     element   :title_crcl,                  :xpath, "//div[contains(@class, 'roscaItemTitle')]/h3"
+     elements  :title_crcl,                  :xpath, "//div[contains(@class, 'roscaItemTitle')]/h3"
      element   :fst_name,                    :xpath, "//input[@id = 'firstname']"
      element   :lst_name,                    :xpath, "//input[@id = 'lastname']"
      element   :e_mail,                      :xpath, "//input[@id = 'email']"
@@ -32,12 +32,10 @@ class CreatecirclePage < BasePage
      element   :crcl_crtd,                   :xpath, "//div[text()='Your circle was created']"
      element   :btn_grid,                    :xpath, "//div[@class='sandwich-expando']"
      element   :lnk_lg_out,                  :xpath, "//li[text()='Log Out']"
-     # elements because it is a list
-     elements  :btn_acpt,                    :xpath, "//button[text()='ACCEPT']"
+     # elements because it is clickable on multiple same name items.
+       elements  :btn_acpt,                    :xpath, "//button[text()='ACCEPT']"
      elements  :btn_dply,                    :xpath, "//button[text()='DEPLOY']"
-
-     #element  :btn_arrow_up,                 :xpath, "%Q{(//img[contains(@src, '/img/arrow-up.svg')]) [1]}"
-     #element  :btn_arrow_up,                 :xpath, "//img[contains(@src, '/img/arrow-up.svg')]"
+     elements  :btn_arrow_up,                 :xpath, "//img[contains(@src, '/img/arrow-up.svg')]"
 
      element  :btn_lnch_metamsk,             :xpath, "//button[text()='Yes, launch MetaMask to deploy circle']"
      element  :btn_sbt,                      :xpath, "//input[@class ='confirm btn-green']"
@@ -121,22 +119,24 @@ class CreatecirclePage < BasePage
 
         def accept_all_circles
 
-            sleep 3
-            #self.btn_arrow_up.click
-            sleep 3
-          btn_acpt.each do |accpt|
-
-            sleep 3
-             puts "title_crcl: #{title_crcl.text}"
-            # puts "$crcl_name: #{$crcl_name}"
-            if title_crcl.text == $crcl_name
-              puts "I AM IN"
-              puts "title_crcl: #{title_crcl.text}"
-              puts "$crcl_name: #{$crcl_name}"
-              accpt.click
+            sleep 6
+            self.btn_arrow_up.each do|arrow|
+              arrow.click
               break
             end
-          end
+
+            sleep 6
+
+            i = 0
+            title_crcl.each do |crclnam|
+              if crclnam.text == $crcl_name
+                puts "circleName: #{crclnam.text}"
+                page.find(:xpath,"(//button[text()='ACCEPT'])[#{i}]").click
+                break
+              end
+              i+= 1
+            end
+
         end
 
         def dply_circle

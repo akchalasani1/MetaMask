@@ -5,7 +5,7 @@ class LoginPage < BasePage
 
      element   :choose_network,              :xpath, ".//div[@class='network-name']"
 
-     # elements because it is a list
+     # elements because it is clickable on multiple same name items.
      elements  :network_name,                :xpath, "//li[@class='dropdown-menu-item']"
      element   :btn_accept,                   :xpath, "//button[text() = 'Accept']"
 

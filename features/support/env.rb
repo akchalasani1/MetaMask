@@ -10,7 +10,11 @@ require "./features/support/ILogger"
 require 'site_prism'
 $download_folder = File.expand_path(File.join(File.path(__dir__),"../../downloads"))
 
-caps = Selenium::WebDriver::Remote::Capabilities.chrome({'chromeOptions' => {'extensions' => [Base64.strict_encode64(File.open('/Users/anilchalasani/MetaMask/config/MetaMask_v4.1.2.crx','rb').read)]}})
+
+path=File.expand_path(File.join(File.path(__dir__),"/../../config/MetaMask_v4.1.2.crx"))
+
+caps = Selenium::WebDriver::Remote::Capabilities.chrome({'chromeOptions' => {'extensions' => [Base64.strict_encode64(File.open(path,'rb').read)]}})
+
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome, :desired_capabilities => caps)
 end

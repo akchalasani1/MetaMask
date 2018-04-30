@@ -10,7 +10,6 @@ After do |scenario|
    encoded_img = page.driver.browser.screenshot_as(:base64)
    embed("data:image/png;base64,#{encoded_img}",'image/png')
  end
-  @app.logout # if removed extra window is opening.
   page.driver.quit
   #FileUtils.rm_rf Dir.glob("#{$download_folder}/**/*")
   ILogger.info("Ending scenario #{scenario.name}")
