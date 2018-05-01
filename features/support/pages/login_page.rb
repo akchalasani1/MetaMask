@@ -38,88 +38,82 @@ class LoginPage < BasePage
      def select_network(networkName, walseed, pswd, confpwd, keyprvt)
 
        choose_network.click
-       sleep 3
-       ILogger.info("networkName:#{networkName}")
+       has_network_name?
+       sleep 1
        network_name.each do |network|
-         ILogger.info("network:#{network.text}")
          if network.text == networkName
+           ILogger.info("network:#{network.text}")
            network.click
            break
          end
        end
 
-       #sleep 3
-       btn_accept.click
-       #sleep 3
+       click_button 'Accept' # click_button has in built sleep
+       #btn_accept.click
+       has_termsOfUse?  # waiting to get displayed
        termsOfUse.click
-       #sleep 3
+
        window = page.driver.browser.window_handles
-       #sleep 3
        page.driver.browser.switch_to.window(window.last)
-       #sleep 3
        page.driver.browser.close
-       #sleep 3
        window = page.driver.browser.window_handles
-       #sleep 3
        page.driver.browser.switch_to.window(window.last)
-       #sleep 3
        btn_accept.click
-       #sleep 3
        link_import_existing_DEN.click
-       #sleep 3
 
        self.wallet_seed.set walseed
-       #sleep 3
        self.new_password.set pswd
-       #sleep 3
        self.confirm_password.set confpwd
-       sleep 3
+       has_btn_ok?
        btn_ok.click
-       sleep 2
+       has_click_user_icon?
+       sleep 1
        click_user_icon.click
-       sleep 2
+       sleep 1
+       has_import_user?
        import_user.click
-       sleep 2
        self.prvt_key.set keyprvt
        btn_import.click
-       page.driver.browser.switch_to.window(window.first)
        sleep 3
+       page.driver.browser.switch_to.window(window.first)
+       has_btn_metamask?
        btn_metamask.click
+       sleep 3
        page.driver.browser.switch_to.window(window.last)
        page.driver.browser.navigate.refresh
        sleep 3
+       has_sign_message_button?
        sign_message_button.click
        page.driver.browser.switch_to.window(window.first)
-       sleep 3
      end
 
      def user_select_network(networkName, walseed, pswd, confpwd, keyprvt)
+       has_ptcpnt_login?
        ptcpnt_login.click
        self.wallet_seed.set walseed
-       #sleep 3
        self.new_password.set pswd
-       #sleep 3
        self.confirm_password.set confpwd
-       sleep 3
+       has_btn_ok?
        btn_ok.click
-       sleep 2
+       has_click_user_icon?
+       sleep 1
        click_user_icon.click
-       sleep 2
+       sleep 1
+       has_import_user?
        import_user.click
-       #sleep 3
        self.prvt_key.set keyprvt
        btn_import.click
        sleep 3
        window = page.driver.browser.window_handles
        page.driver.browser.switch_to.window(window.first)
-       sleep 5
+       has_btn_metamask?
        btn_metamask.click
-       sleep 5
+       sleep 3
        page.driver.browser.switch_to.window(window.last)
        page.driver.browser.navigate.refresh
-       sleep 5
+       sleep 3
+       has_sign_message_button?
        sign_message_button.click
        page.driver.browser.switch_to.window(window.first)
-       sleep 5
      end
  end
