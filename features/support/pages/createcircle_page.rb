@@ -34,8 +34,9 @@ class CreatecirclePage < BasePage
   # elements because it is clickable on multiple same name items.
   elements  :btn_acpt,                    :xpath, "//button[text()='ACCEPT']"
   elements  :btn_dply,                    :xpath, "//button[text()='DEPLOY']"
-  elements  :btn_arrow_up,                 :xpath, "//img[contains(@src, '/img/arrow-up.svg')]"
+  elements  :crcl_frmd,                   :xpath, "//img[@alt = 'Circle Formed']"
 
+  element   :actv_crcl,                   :xpath, "//h2[text()='Active']"
   element  :btn_acpt_invt,                :xpath, "//button[text()='ACCEPT INVITE']"
   element  :btn_lnch_metamsk,             :xpath, "//button[text()='Yes, launch MetaMask to deploy circle']"
   element  :btn_sbt,                      :xpath, "//input[@class ='confirm btn-green']"
@@ -119,25 +120,18 @@ class CreatecirclePage < BasePage
   end
 
   def accept_all_circles
-     sleep 6
-    # self.btn_arrow_up.each do|arrow|
-    #   arrow.click
-    #   break
-    # end
+    #sleep 2
+    self.actv_crcl.click
 
     sleep 6
-    i = 0
+    i = 1
     title_crcl.each do |crclnam|
       if crclnam.text == $crcl_name
-        puts "Participant Searching to Accept Circle Name: #{crclnam.text}"
-        self.crclnam.click
-        sleep 3
-        self.terms_chkbox.click
-        sleep 1
-        self.btn_acpt_invt.click
-
-        #page.find(:xpath,"(//button[text()='ACCEPT'])[#{i}]").click
         puts "Participant Accepted Circle Name: #{crclnam.text}"
+        puts "i is: #{i}"
+        i-= 1 if has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]")
+        puts "i is: #{i}"
+        page.find(:xpath,"(//button[text()='ACCEPT'])[#{i}]").click
         break
       end
       i+= 1

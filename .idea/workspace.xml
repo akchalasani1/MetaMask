@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9e92e71-c049-4f78-996a-89bc18ac584a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/features/support/Utils.rb" afterPath="$PROJECT_DIR$/features/support/Utils.rb" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/features/support/pages/createcircle_page.rb" afterPath="$PROJECT_DIR$/features/support/pages/createcircle_page.rb" />
-      <change beforePath="$PROJECT_DIR$/features/support/pages/login_page.rb" afterPath="$PROJECT_DIR$/features/support/pages/login_page.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +17,7 @@
       <file leaf-file-name="createcircle.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/createcircle.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
+            <state relative-caret-position="888">
               <caret line="37" column="30" lean-forward="false" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
               <folding />
             </state>
@@ -28,7 +27,7 @@
       <file leaf-file-name="createcircle_steps.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/step_definitions/createcircle_steps.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
+            <state relative-caret-position="1056">
               <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
               <folding />
             </state>
@@ -38,7 +37,7 @@
       <file leaf-file-name="login_page.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/support/pages/login_page.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-280">
+            <state relative-caret-position="2136">
               <caret line="89" column="9" lean-forward="false" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
               <folding />
             </state>
@@ -48,8 +47,8 @@
       <file leaf-file-name="createcircle_page.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/features/support/pages/createcircle_page.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="122" column="1" lean-forward="true" selection-start-line="122" selection-start-column="1" selection-end-line="125" selection-end-column="9" />
+            <state relative-caret-position="1274">
+              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,8 +57,8 @@
       <file leaf-file-name="Utils.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/support/Utils.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="49" column="5" lean-forward="false" selection-start-line="43" selection-start-column="2" selection-end-line="49" selection-end-column="5" />
+            <state relative-caret-position="72">
+              <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -179,7 +178,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -222,6 +220,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -333,36 +332,36 @@
       <workItem from="1524866312996" duration="32000" />
       <workItem from="1524866358618" duration="761000" />
       <workItem from="1524867258360" duration="228000" />
-      <workItem from="1524867506721" duration="37632000" />
+      <workItem from="1524867506721" duration="43374000" />
+      <workItem from="1525299014553" duration="805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250036000" />
+    <option name="totallyTimeSpent" value="256583000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="972" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1892552" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1910867" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30022076" sideWeight="0.41636142" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5897436" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30022076" sideWeight="0.5836386" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30022076" sideWeight="0.5836386" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5897436" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -510,16 +509,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-14-55-20.628.png" />
     <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-14-36-51.587.png" />
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-15-02-59.750.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-15-02-59.750.png" />
     <entry file="file://$PROJECT_DIR$/Gemfile.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="104" column="14" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -527,28 +521,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-16-04-48.639.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-16-04-48.639.png" />
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.5.1/gems/capybara-screenshot-1.0.19/lib/capybara-screenshot.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="119" column="9" lean-forward="false" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-16-17-03.745.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-16-17-03.745.png" />
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="864">
@@ -561,25 +545,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-18-54-35.800.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-19-00-42.227.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-19-18-33.631.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-18-54-35.800.png" />
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-19-00-42.227.png" />
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-19-18-33.631.png" />
     <entry file="file://$PROJECT_DIR$/config/env_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -592,38 +563,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1096">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-20-33-01.676.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-29-19-09-12.239.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-29-19-09-12.239.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-29-19-34-36.656.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-27-20-33-01.676.png" />
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-29-19-09-12.239.html" />
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-29-19-09-12.239.png" />
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-29-19-34-36.656.png" />
     <entry file="file://$PROJECT_DIR$/features/step_definitions/login_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -631,13 +581,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/features/support/pages/login_page.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
+        <state relative-caret-position="2136">
           <caret line="89" column="9" lean-forward="false" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
           <folding />
         </state>
@@ -645,7 +594,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/features/createcircle.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
+        <state relative-caret-position="888">
           <caret line="37" column="30" lean-forward="false" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
           <folding />
         </state>
@@ -653,7 +602,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/features/step_definitions/createcircle_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
+        <state relative-caret-position="1056">
           <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
           <folding />
         </state>
@@ -663,27 +612,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-30-19-00-07.308.png" />
     <entry file="file://$PROJECT_DIR$/features/support/Utils.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="49" column="5" lean-forward="false" selection-start-line="43" selection-start-column="2" selection-end-line="49" selection-end-column="5" />
+        <state relative-caret-position="72">
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="12" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/screenshot_2018-04-30-19-00-07.308.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/features/support/pages/createcircle_page.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="122" column="1" lean-forward="true" selection-start-line="122" selection-start-column="1" selection-end-line="125" selection-end-column="9" />
+        <state relative-caret-position="1274">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding />
         </state>
       </provider>
