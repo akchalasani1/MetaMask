@@ -37,6 +37,11 @@ class CreatecirclePage < BasePage
   elements  :crcl_frmd,                   :xpath, "//img[@alt = 'Circle Formed']"
 
   element   :actv_crcl,                   :xpath, "//h2[text()='Active']"
+  element   :pndg_crcl,                   :xpath, "//h2[text()='Pending']"
+  element   :cmplt_crcl,                  :xpath, "//h2[text()='Completed']"
+  element   :dplyg_btn,                   :xpath, "//button[text()='DEPLOYING'] "
+
+
   element  :btn_acpt_invt,                :xpath, "//button[text()='ACCEPT INVITE']"
   element  :btn_lnch_metamsk,             :xpath, "//button[text()='Yes, launch MetaMask to deploy circle']"
   element  :btn_sbt,                      :xpath, "//input[@class ='confirm btn-green']"
@@ -92,6 +97,7 @@ class CreatecirclePage < BasePage
         enter_amount.set amount.to_f
       end
     end
+    has_btn_next?
     sleep 1
     btn_next.click
   end
@@ -123,15 +129,20 @@ class CreatecirclePage < BasePage
     #sleep 2
     self.actv_crcl.click
 
-    sleep 6
+    sleep 3
     i = 1
+    j = 0
     title_crcl.each do |crclnam|
+      puts "i is: #{i}"
+      if has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]")
+        j+= 1
+      end
+      puts "j is: #{j}"
+
       if crclnam.text == $crcl_name
         puts "Participant Accepted Circle Name: #{crclnam.text}"
-        puts "i is: #{i}"
-        i-= 1 if has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]")
-        puts "i is: #{i}"
-        page.find(:xpath,"(//button[text()='ACCEPT'])[#{i}]").click
+
+        page.find(:xpath,"(//button[text()='ACCEPT'])[#{i-j}]").click
         break
       end
       i+= 1
@@ -140,15 +151,32 @@ class CreatecirclePage < BasePage
   end
 
   def dply_circle
+
+    self.actv_crcl.click
+
     sleep 3
-    btn_dply.each do |deploy|
-      sleep 3
-      deploy.click
-      sleep 3
+    i = 1
+    #j = 0
+    title_crcl.each do |crclnam|
+      # puts "i is: #{i}"
+      # if has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]")
+      #   j+= 1
+      # end
+      # puts "j is: #{j}"
+
+      if crclnam.text == $crcl_name
+        puts "Organizer Deployed Circle Name: #{crclnam.text}"
+
+        page.find(:xpath,"(//button[text()='DEPLOY'])[#{i}]").click
+        break
+      end
+      i+= 1
     end
   end
 
   def review_crcl
+    sleep 2
+    has_btn_lnch_metamsk?
     self.btn_lnch_metamsk.click
     sleep 3
     window = page.driver.browser.window_handles
@@ -161,10 +189,37 @@ class CreatecirclePage < BasePage
   end
 
   def pay_crcl
-    sleep 3
-    btn_pay.each do |pay_circle|
-      sleep 3
-      pay_circle.click
+    #sleep 3
+    # btn_pay.each do |pay_circle|
+    #   sleep 3
+    #   pay_circle.click
+
+
+    sleep 50
+    page.driver.browser.navigate.refresh
+    sleep 10
+    self.pndg_crcl.click
+    self.cmplt_crcl.click
+
+    i = 1
+    #j = 0
+    title_crcl.each do |crclnam|
+      # puts "i is: #{i}"
+      # if has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]")
+      #   j+= 1
+      # end
+      # puts "j is: #{j}"
+
+      if crclnam.text == $crcl_name
+        puts "Organizer Paid For Circle Name: #{crclnam.text}"
+        # Start Round 1/ 2 or End Circle buttons is interfering the click in next step.
+        page.find(:xpath,"(//button[text()='PAY'])[#{i}]").click
+        break
+      end
+      i+= 1
+    end
+
+
       sleep 3
       self.btn_sign_pymt_lnch_metamsk.click
 
@@ -186,6 +241,7 @@ class CreatecirclePage < BasePage
       end
 
       page.driver.browser.switch_to.window(window.last)
-    end
+      sleep 15
+    #end
   end
 end

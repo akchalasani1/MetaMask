@@ -55,8 +55,8 @@ begin
 #  BASE_URL =  config[env]['url']
 
 # BASE_URL = "https://tlc-stage.herokuapp.com/account/login"  # STAGE
-# BASE_URL = "https://tlc-rc.herokuapp.com/account/login"      # RC
- BASE_URL = "https://tlc-testnet.wetrust.io/account/login"    # TestNet
+  BASE_URL = "https://tlc-rc.herokuapp.com/account/login"      # RC
+# BASE_URL = "https://tlc-testnet.wetrust.io/account/login"    # TestNet
 
 #USER_NAME = Base64.decode64( config[env]['user'])
 #  PASSWORD =  Base64.decode64( config[env]['password'])
