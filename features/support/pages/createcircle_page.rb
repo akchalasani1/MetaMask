@@ -130,7 +130,7 @@ class CreatecirclePage < BasePage
     self.actv_crcl.click
 
     sleep 3
-    i = 1
+    i = 1 # i is the count of circle names till name is matched.
     j = 0
     title_crcl.each do |crclnam|
       puts "i is: #{i}"
@@ -156,14 +156,7 @@ class CreatecirclePage < BasePage
 
     sleep 3
     i = 1
-    #j = 0
     title_crcl.each do |crclnam|
-      # puts "i is: #{i}"
-      # if has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]")
-      #   j+= 1
-      # end
-      # puts "j is: #{j}"
-
       if crclnam.text == $crcl_name
         puts "Organizer Deployed Circle Name: #{crclnam.text}"
 
@@ -190,29 +183,39 @@ class CreatecirclePage < BasePage
 
   def pay_crcl
     #sleep 3
-    # btn_pay.each do |pay_circle|
-    #   sleep 3
-    #   pay_circle.click
-
-
-    sleep 50
-    page.driver.browser.navigate.refresh
-    sleep 10
-    self.pndg_crcl.click
+    #self.actv_crcl.click
+    sleep 3
     self.cmplt_crcl.click
+    sleep 3
+
+    pndg_crl = []
+        title_crcl.each do |crl_name|
+          pndg_crl<<crl_name
+        end
+    pndg_crl_size = pndg_crl.size
+
+    time = 3
+
+    puts "circle size: #{pndg_crl_size}"
+    actl_circle = pndg_crl_size-1
+    until (pndg_crl_size == actl_circle) || (pndg_crl_size.equal?(null))
+      sleep time
+      page.driver.browser.navigate.refresh
+      self.actv_crcl.click
+      self.cmplt_crcl.click
+      time+=3
+      puts "time: #{time}"
+      puts "circle size: #{pndg_crl_size}"
+      break if time == 30
+    end
+
+    self.actv_crcl.click
 
     i = 1
-    #j = 0
     title_crcl.each do |crclnam|
-      # puts "i is: #{i}"
-      # if has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]")
-      #   j+= 1
-      # end
-      # puts "j is: #{j}"
-
       if crclnam.text == $crcl_name
         puts "Organizer Paid For Circle Name: #{crclnam.text}"
-        # Start Round 1/ 2 or End Circle buttons is interfering the click in next step.
+        # No button, Start Round, withdraw & End Circle buttons is interfering the click in next step.
         page.find(:xpath,"(//button[text()='PAY'])[#{i}]").click
         break
       end
