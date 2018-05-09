@@ -48,6 +48,12 @@ class CreatecirclePage < BasePage
   elements :btn_pay,                      :xpath, "//button[text()='PAY']"
   element  :btn_sign_pymt_lnch_metamsk,   :xpath, "//button[text()='Launch MetaMask to sign payment']"
 
+  element  :no_pndg_crcl,                 :xpath, "//div[text()='You have no pending circles.']"
+  elements :btn_strt_rnd2,               :xpath, "//button[text()='START ROUND 2']"
+  element  :no_btn,                       :xpath, "//div[text()='All participants must accept their invites before the Lending Circle can be started.']"
+
+
+
 
   def select_circle_type(circle_type)
     new_circle.click
@@ -134,7 +140,7 @@ class CreatecirclePage < BasePage
     j = 0
     title_crcl.each do |crclnam|
       puts "i is: #{i}"
-      if has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]")
+      if page.has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]") || (page.has_xpath?("//div[text()='All participants must accept their invites before the Lending Circle can be started.'])[#{i}]"))
         j+= 1
       end
       puts "j is: #{j}"
@@ -198,7 +204,7 @@ class CreatecirclePage < BasePage
 
     puts "circle size: #{pndg_crl_size}"
     actl_circle = pndg_crl_size-1
-    until (pndg_crl_size == actl_circle) || (pndg_crl_size.equal?(null))
+    until ((pndg_crl_size == actl_circle) || (page.has_no_xpath?("//button[text()='DEPLOYING']")))
       sleep time
       page.driver.browser.navigate.refresh
       self.actv_crcl.click
@@ -211,16 +217,26 @@ class CreatecirclePage < BasePage
 
     self.actv_crcl.click
 
-    i = 1
+    sleep 3
+    i = 1 # i is the count of circle names till name is matched.
+    j = 0
     title_crcl.each do |crclnam|
-      if crclnam.text == $crcl_name
-        puts "Organizer Paid For Circle Name: #{crclnam.text}"
-        # No button, Start Round, withdraw & End Circle buttons is interfering the click in next step.
-        page.find(:xpath,"(//button[text()='PAY'])[#{i}]").click
-        break
+      puts "i is: #{i}"
+      if (page.has_button?"(//button[text()='START ROUND 2'])[#{i}]") || (page.has_button?("(//button[text()='END CIRCLE'])[#{i}]"))
+        j+= 1
       end
-      i+= 1
-    end
+      puts "j is: #{j}"
+
+        if crclnam.text == $crcl_name
+          puts "Organizer Paid For Circle Name: #{crclnam.text}"
+          # No button, Start Round, withdraw & End Circle buttons is interfering the click in next step.
+          page.find(:xpath,"(//button[text()='PAY'])[#{i}]").click
+          break
+        end
+        i+= 1
+      end
+
+
 
 
       sleep 3
@@ -244,7 +260,7 @@ class CreatecirclePage < BasePage
       end
 
       page.driver.browser.switch_to.window(window.last)
-      sleep 15
+      sleep 3
     #end
   end
 end
