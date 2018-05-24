@@ -8,6 +8,8 @@ require 'capybara/poltergeist'           # for headless
 require 'capybara-screenshot/cucumber'   # screenshots
 require "./features/support/ILogger"
 require 'site_prism'
+require 'spreadsheet'  # Library is designed to read and write Spreadsheet Documents
+
 $download_folder = File.expand_path(File.join(File.path(__dir__),"../../downloads"))
 
 
@@ -49,6 +51,35 @@ end
 config = YAML.load_file('./config/env_config.yml')
 $test_env = ENV['env']
 
+URL = {      'testnet' => "https://tlc-testnet.wetrust.io/account/login",
+             'rc' => "https://tlc-rc.herokuapp.com/account/login",
+             'stage' => "https://tlc-stage.herokuapp.com/account/login"
+}
+
+
+def app_invoke
+  #puts "Test"
+
+  begin
+  #puts "Test"
+  case ENV['URL']
+    when 'rc'
+      app_url = URL['rc']
+    when 'stage'
+      app_url = URL['stage']
+    else
+      app_url = URL['testnet']
+  end
+  #puts"app_url:#{app_url}"
+  visit(app_url)
+
+  rescue
+    ILogger.error("env variable is set as #{$test_env} which is invalid , please select QA, DEV or PROD")
+    raise "invalid environment!!"
+  end
+end
+
+
 begin
 #  $test_env ||= 'QA'
 #  env = $test_env.to_s
@@ -56,7 +87,7 @@ begin
 
 # BASE_URL = "https://tlc-stage.herokuapp.com/account/login"  # STAGE
 # BASE_URL = "https://tlc-rc.herokuapp.com/account/login"      # RC
- BASE_URL = "https://tlc-testnet.wetrust.io/account/login"    # TestNet
+# BASE_URL = "https://tlc-testnet.wetrust.io/account/login"    # TestNet
 
 #USER_NAME = Base64.decode64( config[env]['user'])
 #  PASSWORD =  Base64.decode64( config[env]['password'])
@@ -78,4 +109,5 @@ $prpnt_wallet_phase = user_details["participant_details"]["walletseed_phase"]
 $prpnt_wallet_password = user_details["participant_details"]["password"]
 $prpnt_wallet_cnfm_password = user_details["participant_details"]["confirm_password"]
 $prpnt_wallet_key = user_details["participant_details"]["key_private"]
+#$tstnet_prpnt_wallet_key = user_details["participant_details"]["tstnet_key_private"]
 

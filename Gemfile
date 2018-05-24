@@ -37,5 +37,8 @@ group(:test) do
   #  page object model pattern
   gem 'site_prism', '~> 2.12'
 
+  #  Spreadsheet Library is designed to read and write Spreadsheet Documents
+  gem 'spreadsheet', '~> 1.1.7'
+
 
 end

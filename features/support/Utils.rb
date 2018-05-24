@@ -6,7 +6,7 @@ module Utils
   def self.get_past_date( no_of_days_ago )
     require 'date'
     days_ago = Date.today - no_of_days_ago.to_i
-    puts days_ago
+    #puts days_ago
     year = days_ago.to_s.split('-')[0].to_i
     mon = days_ago.to_s.split('-')[1].to_i
     day = days_ago.to_s.split('-')[2].to_i

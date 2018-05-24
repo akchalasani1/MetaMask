@@ -1,6 +1,6 @@
 class CreatecirclePage < BasePage
 
-  set_url BASE_URL
+  #set_url BASE_URL
 
   element   :new_circle,                  :xpath, "//button[text() = 'New Circle']"
   element   :rndm_circle,                 :xpath, "//div[text()='Random']"
@@ -56,6 +56,7 @@ class CreatecirclePage < BasePage
 
 
   def select_circle_type(circle_type)
+
     new_circle.click
     if circle_type == "Random"
       rndm_circle.click
@@ -120,8 +121,23 @@ class CreatecirclePage < BasePage
   def term_condi
     self.terms_chkbox.click
     self.crct_crcl.click
-    puts "Organizer Created Circle Name: #{$crcl_name}"
+    #puts "Organizer Created Circle Name: #{$crcl_name}"
     sleep 3
+
+    book = Spreadsheet::Workbook.new
+    sheet1 = book.create_worksheet :name => 'Circle_Details'
+
+    url = URI.parse(current_url)
+    #puts "#{url}"
+    test = url.to_s.split('/')
+    #puts test.last
+    code = test.last.split('?')
+    uniq_id = code.first
+
+    sheet1.row(0).push "#{uniq_id}" # array variable name
+
+    book.write 'Zrcl_test.xls'
+
   end
 
   def user_signout
@@ -131,46 +147,39 @@ class CreatecirclePage < BasePage
     sleep 3
   end
 
-  def accept_all_circles
-    #sleep 2
-    self.actv_crcl.click
+  def accept_circle
+    book = Spreadsheet.open('Zrcl_test.xls')
+    sheet1 = book.worksheet('Circle_Details') # can use an index or worksheet name
+    sheet1.each do |row|
+       if !(row[0].nil?)
+         #puts "row #{row[0]}"
+         @id = row[0]
+         #puts "ID: #{@id}"
 
-    sleep 3
-    i = 1 # i is the count of circle names till name is matched.
-    j = 0
-    title_crcl.each do |crclnam|
-      puts "i is: #{i}"
-      if page.has_xpath?("(//img[@alt = 'Circle Formed'])[#{i}]") || (page.has_xpath?("//div[text()='All participants must accept their invites before the Lending Circle can be started.'])[#{i}]"))
-        j+= 1
-      end
-      puts "j is: #{j}"
-
-      if crclnam.text == $crcl_name
-        puts "Participant Accepted Circle Name: #{crclnam.text}"
-
-        page.find(:xpath,"(//button[text()='ACCEPT'])[#{i-j}]").click
-        break
-      end
-      i+= 1
+       end
     end
+
+    crcl_pndg_page = "https://tlc-testnet.wetrust.io/roscas/pending/#{@id}"
+    #puts "crcl_pndg_page: #{crcl_pndg_page}"
+    page.driver.visit crcl_pndg_page
+    sleep 10
+    has_terms_chkbox?
+    self.terms_chkbox.click
+    sleep 3
+    self.btn_acpt_invt.click
+    sleep 5
 
   end
 
+
   def dply_circle
-
-    self.actv_crcl.click
-
+    crcl_pndg_page = "https://tlc-testnet.wetrust.io/roscas/pending/#{@id}"
+    #puts "crcl_pndg_page: #{crcl_pndg_page}"
+    page.driver.visit crcl_pndg_page
+    sleep 10
+    page.find(:xpath,"(//button[text()='DEPLOY'])").click
     sleep 3
-    i = 1
-    title_crcl.each do |crclnam|
-      if crclnam.text == $crcl_name
-        puts "Organizer Deployed Circle Name: #{crclnam.text}"
 
-        page.find(:xpath,"(//button[text()='DEPLOY'])[#{i}]").click
-        break
-      end
-      i+= 1
-    end
   end
 
   def review_crcl
@@ -188,58 +197,24 @@ class CreatecirclePage < BasePage
   end
 
   def pay_crcl
-    #sleep 3
-    #self.actv_crcl.click
-    sleep 3
-    self.cmplt_crcl.click
-    sleep 3
 
-    pndg_crl = []
-        title_crcl.each do |crl_name|
-          pndg_crl<<crl_name
-        end
-    pndg_crl_size = pndg_crl.size
+    crcl_pndg_page = "https://tlc-testnet.wetrust.io/roscas/pending/#{@id}"
+    #puts "crcl_pndg_page: #{crcl_pndg_page}"
+    page.driver.visit crcl_pndg_page
 
-    time = 3
-
-    puts "circle size: #{pndg_crl_size}"
-    actl_circle = pndg_crl_size-1
-    until ((pndg_crl_size == actl_circle) || (page.has_no_xpath?("//button[text()='DEPLOYING']")))
-      sleep time
+    # time = 0
+    #puts "#{page.has_xpath?("//button[text()='PAY']")}"
+    until (page.has_xpath?("//button[text()='PAY']"))   #until with flag
+     # puts "InSide"
+      # sleep time
       page.driver.browser.navigate.refresh
-      self.actv_crcl.click
-      self.cmplt_crcl.click
-      time+=3
-      puts "time: #{time}"
-      puts "circle size: #{pndg_crl_size}"
-      break if time == 30
+      # time+=3
+      # break if time == 60
     end
 
-    self.actv_crcl.click
-
-    sleep 3
-    i = 1 # i is the count of circle names till name is matched.
-    j = 0
-    title_crcl.each do |crclnam|
-      puts "i is: #{i}"
-      if (page.has_button?"(//button[text()='START ROUND 2'])[#{i}]") || (page.has_button?("(//button[text()='END CIRCLE'])[#{i}]"))
-        j+= 1
-      end
-      puts "j is: #{j}"
-
-        if crclnam.text == $crcl_name
-          puts "Organizer Paid For Circle Name: #{crclnam.text}"
-          # No button, Start Round, withdraw & End Circle buttons is interfering the click in next step.
-          page.find(:xpath,"(//button[text()='PAY'])[#{i}]").click
-          break
-        end
-        i+= 1
-      end
-
-
-
-
       sleep 3
+      page.find(:xpath,"(//button[text()='PAY'])").click
+      sleep 5
       self.btn_sign_pymt_lnch_metamsk.click
 
       window = page.driver.browser.window_handles
@@ -251,12 +226,9 @@ class CreatecirclePage < BasePage
       page.driver.browser.navigate.refresh
       sleep 3
 
-      if btn_sbt == "confirm btn-green"
-        btn_sbt.click
-        puts "cool"
-      elsif
-      btn_sbt.click
-        puts "nice"
+
+      if page.has_xpath?("//input[@class ='confirm btn-green']")
+         self.btn_sbt.click
       end
 
       page.driver.browser.switch_to.window(window.last)

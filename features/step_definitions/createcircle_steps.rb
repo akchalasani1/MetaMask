@@ -42,7 +42,7 @@ end
 
 
 And(/^participant accepts the circle invite$/) do
-  @app.createcircle.accept_all_circles
+  @app.createcircle.accept_circle
 end
 
 

@@ -1,6 +1,6 @@
 Feature: Create Random, Pre-Determined and Auction Circles with ETH and TRST as Organizer.
 
-	@wip1 @day1 @random @eth @random-eth
+	@wip1 @day1 @random @eth @random-eth @stage @rc @testnet
 	Scenario: create new Random cirlce with etherium currency
 		Given User access Metamask
 		And User selects "Rinkeby Test Network"
@@ -22,7 +22,7 @@ Feature: Create Random, Pre-Determined and Auction Circles with ETH and TRST as 
 		And User pay for 1st round as a participant to the circle
 
 
-	@wip2 @day1 @random @trst @random-trst
+	@wip2 @day1 @random @trst @random-trst @stage @rc @testnet
 	Scenario: create new Random cirlce with trst currency
 		Given User access Metamask
 		And User selects "Rinkeby Test Network"

@@ -1,7 +1,6 @@
 
 class LoginPage < BasePage
 
-     set_url BASE_URL
 
      element   :choose_network,              :xpath, ".//div[@class='network-name']"
 
@@ -26,7 +25,8 @@ class LoginPage < BasePage
      element   :ptcpnt_login,                :xpath, "//p[text()='Restore from seed phrase']"
 
       def access_metamask
-        visit(BASE_URL)
+        #visit(BASE_URL)
+        app_invoke
         window = page.driver.browser.window_handles
         #puts"window.size: #{window.size}"
         if window.size > 1
@@ -106,14 +106,16 @@ class LoginPage < BasePage
        sleep 3
        window = page.driver.browser.window_handles
        page.driver.browser.switch_to.window(window.first)
+       sleep 5
        has_btn_metamask?
        btn_metamask.click
-       sleep 3
+       sleep 5
        page.driver.browser.switch_to.window(window.last)
        page.driver.browser.navigate.refresh
-       sleep 3
+       sleep 5
        has_sign_message_button?
        sign_message_button.click
        page.driver.browser.switch_to.window(window.first)
+       sleep 3
      end
  end
