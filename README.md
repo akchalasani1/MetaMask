@@ -139,3 +139,4 @@ If you're using a Mac and `setup.sh` runs into an issue compiling the `nokogirl`
 *   http://cukes.info (for general cucumber information)
 *   http://github.com/jnicklas/capybara (for actions such as click_link,
     click_button, etc...)
+# Platform
